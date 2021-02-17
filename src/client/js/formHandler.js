@@ -9,7 +9,7 @@ function handleSubmit(event) {
     // two params: POST endpoint, and the text to for analysis
     submitText('http://localhost:8081/test', event.target[0].value)
     .then((data) => {
-      if (data && data.status.msg == 'OK') {
+      if (data.status && data.status.msg == 'OK') {
         results.innerHTML = formatResponse(data)
       } else {
         results.textContent = "Cannot reach the server... Check your connection or the system might be offline."
