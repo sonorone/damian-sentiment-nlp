@@ -1,7 +1,7 @@
-async function submitText(text) {
+async function submitText(url, text) {
 
   try {
-    const response = await fetch('http://localhost:8081/test', {
+    const response = await fetch(url, {
       method: 'POST',
       mode: 'cors',
       credentials: 'same-origin',
@@ -14,7 +14,7 @@ async function submitText(text) {
     return response.json()
     
   } catch (error) {
-    console.log('Error occured while fetching: ', error);
+    return error;
   }  
 }
 
