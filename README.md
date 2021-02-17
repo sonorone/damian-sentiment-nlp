@@ -7,7 +7,7 @@ There must be .env file in the root folder with the below variables. API_KEY com
 
 ```API_KEY=123123123123
 PORT=8080
-LANG=en
+LANGUAGE=en
 MODEL=damianModel
 ```
 

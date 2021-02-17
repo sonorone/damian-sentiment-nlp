@@ -1,6 +1,7 @@
 const https = require('follow-redirects').https;
 const path = require('path');
 const express = require('express');
+const cors = require('cors')
 const bodyParser = require('body-parser');
 const mockAPIResponse = require('./mockAPI.js');
 const dotenv = require('dotenv');
@@ -8,11 +9,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const PORT = process.env.PORT;
-const LANG = process.env.LANG;
+const LANG = process.env.LANGUAGE;
 const MODEL = process.env.MODEL;
 const API_KEY = process.env.API_KEY;
-
 const app = express();
+app.use(cors());
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
@@ -23,8 +24,7 @@ app.listen(PORT, function () {
 })
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'));
+    res.sendFile('dist/index.html')
 })
 
 app.get('/mock', function (req, res) {
