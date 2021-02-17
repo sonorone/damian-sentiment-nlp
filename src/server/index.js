@@ -27,8 +27,10 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-app.get('/mock', function (req, res) {
-    res.send(mockAPIResponse);
+app.post('/mock', function (req, res) {
+    setTimeout(() => {
+        res.send(mockAPIResponse);
+    }, 1000);
 })
 
 app.post('/test', function (request, response) {
